@@ -53,7 +53,9 @@
           \begin{itemize}
             \item Email: qian.lilong@u.nus.edu
             \item Phone Number: 90874186
-            \item Website: \url{http://tsien.farbox.com/}
+            \item Website: \url{http://tsien.farbox.com/}\\
+                  Go to the website, and scroll down, see the \textbf{Work} entry, in the tutor project, click the link
+                  for more information. I will provide this slide and the source .tex file on that site.
           \end{itemize}
   \end{itemize}
 \end{tframe}
@@ -259,7 +261,7 @@
           We consider for the numbers of extra triangles of $\bigtriangleup_{n+1}$ compared to thath of
           $\bigtriangleup_{n}$
           \begin{itemize}
-            \item Extra up triangles $\bigtriangleup$
+           \item Extra up triangles $\bigtriangleup$
                   \begin{minipage}{0.8\linewidth}
                     Add one line $l$ beneath the lowest line. Intersect the non horizontal
                     lines with l giving $n + 2$ points.
@@ -273,19 +275,22 @@
                   \end{minipage}%
                   \begin{minipage}{0.2\linewidth}
                      \begin{tikzpicture}[scale=0.4]
-                    \foreach \y in {1,...,4} { \draw (0.5*\y - 0.5, 0.866*\y- 0.866)--++ ( 5-\y , 0); \draw (\y-
-                      1,0)--(1.5+ 0.5*\y,0.866*5- 0.866*\y); \draw (\y,0)--(0.5*\y,0.866*\y); }
+                     \foreach \y in {1,...,4} { \draw (0.5*\y - 0.5, 0.866*\y- 0.866)--++ ( 5-\y , 0); \draw (\y-
+                       1,0)--(1.5+ 0.5*\y,0.866*5- 0.866*\y); \draw (\y,0)--(0.5*\y,0.866*\y); }
                       \draw[dashed,blue] (0,0)--(-0.5,-0.866)--(4.5,-0.866)--(4,0);
                       \foreach \x in {1,...,4}{   \draw[dashed,blue] (\x- 0.5,-0.866)--(\x-1,0);
-                      \draw[dashed,blue] (\x- 0.5,-0.866)--(\x,0)}
-                    \node[right] at (4.5,-0.886) {$l$};
-                    \node[below] at (0.5,-0.886) {A};
-                    \node[below] at (3.5,-0.886) {B};     
+                      \draw[dashed,blue] (\x- 0.5,-0.866)--(\x,0);}
+                     \node[right] at (4.5,-0.886) {$l$};
+                     \node[below] at (0.5,-0.886) {A};
+                     \node[below] at (3.5,-0.886) {B};    
+                    
                   \end{tikzpicture}
                 \end{minipage}
              \framebreak
-            \item Extra down triangles $\bigtriangledown$
-                  \begin{minipage}{0.7\linewidth}
+             \item Extra down triangles $\bigtriangledown$ 
+                 
+             
+\begin{minipage}{0.7\linewidth}
                     
                   \begin{itemize}
                     \item $n=2k$ is even\\
@@ -296,14 +301,14 @@
                           Move $A$ from left to center point (showing as the dashed line and the right side is symmetric
                           with left), we have $2(1+2+\cdots+k)+(k+1)=(k+1)^2=(\frac{n+1}{4})^2$ extra triangles.
                   \end{itemize}
-                                    \end{minipage}%
+                \end{minipage}%
                    \begin{minipage}{0.2\linewidth}\hspace*{2em}
                      \begin{tikzpicture}[scale=0.4]
                     \foreach \y in {1,...,4} { \draw (0.5*\y - 0.5, 0.866*\y- 0.866)--++ ( 5-\y , 0); \draw (\y-
                       1,0)--(1.5+ 0.5*\y,0.866*5- 0.866*\y); \draw (\y,0)--(0.5*\y,0.866*\y); }
                       \draw[dashed,blue] (0,0)--(-0.5,-0.866)--(4.5,-0.866)--(4,0);
                       \foreach \x in {1,...,4}{   \draw[dashed,blue] (\x- 0.5,-0.866)--(\x-1,0);
-                        \draw[dashed,blue] (\x- 0.5,-0.866)--(\x,0)}
+                        \draw[dashed,blue] (\x- 0.5,-0.866)--(\x,0);}
                       \draw[dashed,gray] (2,-2)--(2,5);
                     \node[right] at (4.5,-0.886) {$l$};
                     \node[below] at (0.5,-0.886) {A};
@@ -311,7 +316,7 @@
                   \end{tikzpicture}
                 \end{minipage}
              \framebreak     
-            \item The total number of the extra triangles  is
+\item The total number of the extra triangles  is
                   
                   $\frac{3}{4}n^2+2n+1$ when $n$ is even and  $\frac{3}{4}n^2+2n+\frac{5}{4}$ when $n$ is odd, which is
                   $ \frac{3}{4}n^2+2n+1+\frac{1}{8}-\frac{(-1)^n }{8}$.
@@ -320,6 +325,8 @@
                     \frac{n^3}{4}+{5n^2\over 8}+{n\over 4} -{1\over 16}+ {(-1)^{n}\over 16}.
                   \end{align*}
                   (We compute it by add extra numbers from $\bigtriangleup_1$ with the extra number formula deduced above) 
+
+           
           \end{itemize}
           
       
@@ -331,6 +338,9 @@
      
      
 \end{frame}
+
+
+
 
 
 \begin{frame}
@@ -405,6 +415,7 @@
 
 
 
+
 \begin{frame}{6.Number of Regions}
 \textbf{Question:}
 \begin{itemize}
@@ -470,9 +481,15 @@ Every line can intersect with most 2 edges of a trangle. Therefore, when n=2, th
 		\caption{n=5,8}
 	\end{figure}
 \end{frame}
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
+
+
 
 \begin{tframe}
-  Thank you for your listening
+  \vspace{8em} {\large Thank you for your listening}
 \end{tframe}
 \end{document}
 %%% Local Variables:
