@@ -53,10 +53,16 @@
           \begin{itemize}
             \item Email: qian.lilong@u.nus.edu
             \item Phone Number: 90874186
-            \item Website: \url{http://tsien.farbox.com/}\\
-                  Go to the website, and scroll down, see the \textbf{Work} entry, in the tutor project, click the link
-                  for more information. I will provide this slide and the source .tex file on that site.
+            \item Website: \url{tsien.farbox.com}\\
+                  Go to the website, and scroll down, see the \textbf{Work} entry, in the ``Tutor'' project, click the link
+                  for more information. I will provide this slide and the source \highlightbf{.tex} file on that site.
           \end{itemize}
+    \item Course information
+          \begin{itemize}
+            \item EVERY WEEK	MONDAY	10:00-11:00	S16-0431
+          \end{itemize}
+
+          
   \end{itemize}
 \end{tframe}
 
@@ -65,10 +71,12 @@
   \begin{figure}[H]
     \centering
     \begin{tikzpicture}[scale=0.70]
-      \scriptsize \foreach \x in {0,1,...,4} { \draw
-        (0+\x,0.5*\x)--(10+\x,0.5*\x)--(10+\x,0.5+0.5*\x)--(0+\x,0.5+0.5*\x)--cycle; \node at (5+\x,0.25+0.5*\x)
-        {$\textbullet$}; \node at (5.5+\x, 0.2+0.5*\x) {$ x_{\x}$}; } \node[below] at (0.5,0) {$A=(0,0)$}; \node[below]
-      at (9.5,0) {$B=(x,0)$}; \draw[decorate,decoration={brace,raise=2pt,amplitude=2pt,mirror}] (0,0-0.8) -- node{x}
+      \scriptsize \foreach \x in {1,...,5} { \draw
+        (0+\x -1,0.5*\x- 0.5)--(10+\x -1,0.5*\x- 0.5)--(10+\x -1,0.5+0.5*\x- 0.5)--(0+\x- 1,0.5+0.5*\x- 0.5)--cycle;
+        \node at (5+\x -1,0.25+0.5*\x -0.5)
+        {$\textbullet$}; \node at (5.5+\x -1, 0.2+0.5*\x -0.5) {$ x_{\x}$ };}
+      \node[below] at (0.5,0) {$A=(0,0)$}; \node[below]
+      at (9.5,0) {$B=(2x,0)$}; \draw[decorate,decoration={brace,raise=2pt,amplitude=2pt,mirror}] (0,0-0.8) -- node{2x}
       (10,0-0.8) ; \draw[decorate,decoration={brace,raise=2pt,amplitude=2pt,mirror}] (14.8,2) -- node[right=3pt]{y}
       (14.8,2.5) ; \draw[decorate,decoration={brace,raise=2pt,amplitude=2pt,mirror}] (13,2) -- node[below=3pt]{$r$}
       (14,2) ;
@@ -102,17 +110,17 @@
   \begin{itemize}
     \item The gravity center formula comes from
           \begin{align}
-            x_c=\sum_{i=1}^n m_i x_i\over {\sum m_i}.
+            x_c={\sum_{i=1}^n m_i x_i\over {\sum m_i}}.
           \end{align}
           for $n$ objects with mass $m_i$, gravity center $x_i$.
         
           For each slab, the mass is the same, we can denote it as $m$. Then the gravity center of the entire
           configuration is
-          \begin{align}
+          \begin{align*}
             x_c&={\sum_{i=1}^n m x_i\over{\sum_{i=1}^n m}}\\\tag{3}
                &={\sum_{i=1}^n m x_i\over {mn}}\\
                &={\sum_{i=1}^n x_i\over n}.
-          \end{align}
+          \end{align*}
           \url{http://hyperphysics.phy-astr.gsu.edu/hbase/cm.html}
           \framebreak
     \item  Another way
@@ -129,7 +137,7 @@
           \end{figure}
           You may note that the gravity center lies at where the left and the right sides have the equal mass.
           From the figure, the mass on the left of line $l_1$ and the right of $l_3$ equals.
-          Hence the gravity center lie on the line $l_2$, the position of which is $x_{c}=nr+\frac{2x-(n-1)r}{2}=x+\frac{(n-1)r}{2}$.
+          Hence the gravity center lie on the line $l_2$, the position of which is $x_{c}=(n-1)r+\frac{2x-(n-1)r}{2}=x+\frac{(n-1)r}{2}$.
 
         
   \end{itemize}
