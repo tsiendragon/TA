@@ -1,4 +1,4 @@
-The files contains 
+## TA slides
+This directory for GEH 1036,or GEK 1505
 
-  TA ppt
-  
+* See ```GEH1036week3.pdf``` for the explanation of the week 3 problems
