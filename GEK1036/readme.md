@@ -7,4 +7,6 @@ This directory for GEH 1036,or GEK 1505
   source files for compiling. The file version before date 20170206 has a error in the question "Penny picking". The largest possible sum of the subset is ```47+48+49+50``` not  ```47+48+9+50```.  Corected already now.
 * See ```GEH1036week6.pdf``` for the explanation of the tutorial  4.
 * See ```GEH1036week7.pdf``` for the explanation of the tutorial  5.
+* See ```GEH1036week8.pdf``` for the explanation of the tutorial  6.
+* See ```GEH1036week9.pdf``` for the explanation of the tutorial  7.
 
