@@ -304,7 +304,7 @@ $ b\equiv -2$.
 \section{Modulo exponentiation}
 \begin{frame}{Modulo exponentiation}
 	\begin{question}
-		 Find the remainder when 1243 is divided by 713 using modular exponentiation.
+		 Find the remainder when 12$^{43}$ is divided by 713 using modular exponentiation.
 	\end{question}
 \begin{itemize}
 	\item Write exponent as sum of powers of 2: $43 = 2^5 +2^3 +2+1 = 32+8+2+1$.
@@ -313,18 +313,18 @@ $ b\equiv -2$.
 	12^2\equiv 144\\
 	12^4\equiv 144^2\equiv 59\\
 	12^8\equiv 59^2\equiv 629\\
-	12^16\equiv 629^2\equiv 639\\
-	12^32\equiv 639^2\equiv 458
+	12^{16}\equiv 629^2\equiv 639\\
+	12^{32}\equiv 639^2\equiv 485
 	\end{align*}
 \end{itemize}
 \end{frame}
 \begin{frame}{Modulo exponentiation}
 	\begin{question}
-		Find the remainder when 1243 is divided by 713 using modular exponentiation.
+		Find the remainder when 12$^{43}$ is divided by 713 using modular exponentiation.
 	\end{question}
 	\begin{itemize}
 		\item Finally
-		$$ \hspace*{-3em}12^{43} =12^{13}\times 12^8\times 12^2\times 12^1\equiv 458\times 629\times 144\times 12 \equiv 48\Mod{713}$$
+		$$ \hspace*{-3em}12^{43} =12^{13}\times 12^8\times 12^2\times 12^1\equiv 485\times 629\times 144\times 12 \equiv 48\Mod{713}$$
 	\end{itemize}
 \end{frame}
 
@@ -338,10 +338,9 @@ $ b\equiv -2$.
 		\item For such question, first  apply Euclidean algorithm, the write the GCD (1 in fact) in terms of  two numbers.
 		\item Apply Euclidean algorithm:
 		\begin{align*}
-		600 &= 43·15+15\\
-43 &= 15·2+13 \\
-15 &= 13·1+2 \\
-13 &= 2 · 6 + 1
+		600 &= 43·13+41\\
+43 &= 41·1+2 \\
+41 &= 2·20+1 \\
 		\end{align*}
 	\end{itemize}
 \end{frame}
@@ -349,10 +348,11 @@ $ b\equiv -2$.
 	\begin{itemize}
 		\item Then work backwards:
 		\begin{align*}
-		1 &= 13 − 2 · 6\\
-&= 13−(15−13·1)6 = 13·7−15·6\\
-&= (43−15·2)7−15·6 = 43·7−15·20\\
-&= 43·7−(600−43·15)20 = 43·307−600·20
+		1 &= 41 − 2 \cdot 20\\
+&= 41−(43−41·1)20 = -43·20+41·21\\
+                  &= -43\cdot 20+(600-43\cdot 13)\cdot 21\\ 
+                  &=43·(-293)+600·21=43\cdot 307-43\cdot 600+600\cdot 21\\
+                  &=43\cdot 307-600\cdot 22
 		\end{align*}
 		\item Taking modulo 600, we have $1\equiv 43\cdot 307\Mod{600}$.
 		\item Thus $t=307$ is an inverse.
