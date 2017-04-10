@@ -10,3 +10,5 @@ This directory for GEH 1036,or GEK 1505
 * See ```GEH1036week8.pdf``` for the explanation of the tutorial  6.
 * See ```GEH1036week9.pdf``` for the explanation of the tutorial  7. Some mistakes corrected.
 * See ```GEH1036week10.pdf``` for the explanation of the tutorial  8. Some mistakes corrected.First question and third part of 9th question.
+* See ```GEH1036week11.pdf``` for the explanation of the tutorial 9.
+* See ```GEH1036week12.pdf``` for the explanation of the tutorial 10. This tutorial is divided into two parts to be taught on week 12 and week13.
