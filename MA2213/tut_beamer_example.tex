@@ -1,0 +1,522 @@
+\documentclass[aspectratio=169]{beamer}
+% other options: finnish, sectionpages
+
+\usetheme{tut}
+
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage[style=authoryear,backend=biber]{biblatex}
+\usepackage{filecontents}
+\usepackage{booktabs}
+\usepackage{blindtext}
+\usepackage{pgfpages}
+\usepackage{tabularx}
+\hypersetup{colorlinks=true,urlcolor=blue}
+%\setbeameroption{show notes on second screen}% you'll need pgfpages for this one and a suitable pdf viewer i.e. dspdfviewer
+%\setbeameroption{show notes}
+
+\usepackage{listings}
+
+\lstset{
+  language=matlab,
+    basicstyle=\footnotesize, 
+    showstringspaces=false,
+  basicstyle=\scriptsize\ttfamily,
+  backgroundcolor=\color{TUTGrey}
+}
+
+\begin{filecontents}{bibliography.bib}
+@book{hoenig1997,
+ author = {Hoenig, Alan},
+ title = {TEX Unbound: Latex and TEX Strategies for Fonts, Graphics and More},
+ year = {1997},
+ publisher = {Oxford University Press, Inc.}
+} 
+@misc{tantau2013,
+  title = {The BEAMER class -- user guide for version~3.36},
+  author = {T.~Tantau, J.~Wright, V.~Mileti{\'c}},
+  year = {2015},
+}
+@online{tutgraphic,
+  title = {Graphic guidelines},
+  author = {{Tampere University of Technology}},
+  note = {tutka > image > printed publications > graphic guidelines}
+}
+\end{filecontents}
+\addbibresource{bibliography.bib}
+
+% The color palettes can be changed
+%   primary: lower half of titlepage, lower half of left color beam, default block environment
+%   secondary: upper half of left color beam, example block body
+%   tertiary: top header showing outline
+%   quaternary: example block title
+%   structure: structure elements such as list items
+%\setbeamercolor{palette primary}{fg=white,bg=TUTsecPetrol}
+%\setbeamercolor{palette secondary}{fg=white,bg=TUTsecOrange}
+%\setbeamercolor{palette quaternary}{use=palette secondary,bg=palette secondary.bg!50!black}
+\title{MA2213, Numerical Analysis I, Laboratory 1}
+\subtitle{Introduction to MATLAB }
+\author{Qian Lilong}
+\email{qian.lilong@u.nus.edu}
+\institute{Department of Mathematics\\National University of Singapore}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section*{Outline}
+\begin{frame}{Outline}
+	\tableofcontents
+\end{frame}
+%
+
+\section{Introduction}
+\begin{frame}{Introduction to MATLAB}
+  \begin{itemize}
+     \item MATLAB: Matrix Laboratory
+    \item multi-paradigm numerical computing system and proprietary programming language 
+    \item Object-oriented programming and procedure languages
+    \item Developed by MathWorks Inc. in USA
+    \item Alternatives: Octave
+    \item Nus student software:  \\  {\tiny\rm
+          \url{https://nusit.nus.edu.sg/services/software_and_os/software/software-student/\#install-matlab}}
+    \item 
+  Octave:\\{\tiny \url{https://www.gnu.org/software/octave/}}
+  \end{itemize}
+  \bigskip
+\end{frame}
+%
+
+\section{Starting the software}
+\begin{frame}{Starting, 1/2}
+  \begin{columns}
+  \begin{column}{0.475\textwidth}
+    \begin{enumerate}
+    	\item Login with your NUS Net ID:{\tt\color{blue} NUSSTU$\backslash$******* } and corresponding password
+    	\item Double click the MATLAB icon 
+    \end{enumerate}
+  \end{column}
+  \begin{column}{0.475\textwidth}
+  \begin{figure}
+  	\centering
+  	\includegraphics[width=0.7\linewidth]{Udemy-MATLAB-from-Beginner-to-Expert}
+  	\caption{MATLAB Icon}
+  	\label{fig:udemy-matlab-from-beginner-to-expert}
+  \end{figure}
+  \end{column}
+  \end{columns}
+\end{frame}
+
+\begin{frame}[containsverbatim]{Starting, 2/2}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{Figure3}
+	\caption{MATLAB Interface}
+	\label{fig:figure3}
+\end{figure}
+\end{frame}
+
+
+
+
+\begin{frame}[containsverbatim]{Basic statements}
+
+  \begin{itemize}
+    \item Single statements
+    \item assign to a variable
+    \item Usage of semicolon"{\color{blue}:}"
+    \item variable "{\color{blue}ans}"
+    \item Comments "{\color{blue} \emph\%}"
+    \item Rules for name variable: start by a letter, including letters, numbers and underscore "\_". Case sensitive
+  \end{itemize}
+  \begin{lstlisting}
+ 	>> 1+2
+	>> a = 1+2
+	>> 1+2;
+	>> a = 1+2;
+	>> % a = 1+2;
+        >> A = 1+2;
+        >> 1A = 1+2;
+        >> A1 = 1+2;
+        >> A_1 = 1+2;
+  \end{lstlisting}
+\end{frame}
+\section{Variable}
+%\subsection{real number and complex number}
+\begin{frame}{real number and complex number}
+\begin{itemize}
+  \item real number :
+        \begin{exampleblock}{Ex}
+          1,1.1,1.1e+1($1.1\times 10^{1}$),1.1e-1($1.1\times 10^{-1}$),pi($\pi=$3.1415...)\\
+        \end{exampleblock}
+  \item Complex number\\
+        Default imaginary unit $i$ or $j$, which is $\sqrt{-1}$
+        \begin{exampleblock}{Ex}
+          1+i,1-i,1+j,1-j,(1+j)'
+        \end{exampleblock}
+\end{itemize}
+ For operation of complex number:{\tiny \url{https://www.mathworks.com/help/matlab/complex-numbers.html}}
+\end{frame}
+
+%\subsection{Vector and matrix}
+\begin{frame}{vector and matrix}
+  \begin{columns}
+    \begin{column}{0.4\linewidth}
+      \begin{itemize}
+        \item   Row vector:  a,b
+              
+        \item Column vector: c,d,e
+              
+        \item Matrix: A,B,C ({\color{red} \small \tt Vector can be regarded as a special matrix})
+        \item Special matrix: 0,I,1
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.4\linewidth}
+      \begin{exampleblock}{Ex}
+         a = [1,2,3];
+    b = [ 1 2 3];\\
+    c = [1;2;3];d = a';\\
+    e = transpose(b);\\
+    A = [1 2;3 4];\\
+    B = [1,2,3;4,5,6];\\
+    C = B';\\
+    O = zeros(4,3);\\
+    I = eye(4,4);\\
+    one = ones(5,5);\\
+      \end{exampleblock}
+  \end{column}
+\end{columns}
+\end{frame}
+%\subsection{Special variable}
+\begin{frame}
+  \frametitle{Special variable}
+  \begin{table}
+    \centering
+    \tiny
+    \begin{tabular}{ccccccccc}\toprule
+      symbol &pi&1&0&true\\\midrule
+      meaning& $\pi=3.14\ldots$&default double 1 or "true"& default 0 or "false"& logical 1\\\midrule
+     symbol &false& inf& -inf & NaN\\\midrule
+     meaning&logical 0 &$\infty$&$-\infty$&non a number:$\frac{0}{0}$\\\bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
+\section{Operators}
+%\subsection{Arithmetic Operators}
+\begin{frame}
+  \frametitle{Arithmetic Operators}
+  \begin{table}
+  \small
+   \begin{tabular}{ccccccc}\toprule
+    Symbol & +&-&*& $/$&$\backslash$&\^{}\\\midrule
+     Example&1+2&1-2&1*2&$1/2$&1$\backslash$ 2&2\^{} 2\\\midrule
+     Result&2&-1&2&0.5&2&4\\\bottomrule
+   \end{tabular}
+   \caption{Arithmetic Operators}
+   \end{table}
+   
+Refs. {\tiny  \url{https://www.mathworks.com/help/matlab/matlab_prog/matlab-operators-and-special-characters.html}}
+\end{frame}
+
+%\subsection{Relation operators}
+\begin{frame}
+  \frametitle{Relation operators}
+   \begin{table}
+  \small
+   \begin{tabular}{ccccccc}\toprule
+    Symbol & ==&$\sim$ =&>& >=&<&<=\\\midrule
+     Example&1==2&1$\sim$=2&2>2&2>=2& 2<2 &2<=2\\\midrule
+     Result&0&1&0&1&0&1\\\bottomrule
+   \end{tabular}
+   \caption{Relation Operators}
+ \end{table}
+ Note that here ``1'' is of the logical type, means ``true'' and ``0'' means the logical value``false''.\\
+ See the detail of variables by ``{\color{blue}who var}''.
+\end{frame}
+%\subsection{Logical operators}
+\begin{frame}
+  \frametitle{Logical operators}
+  \begin{table}
+    \centering
+    \begin{tabular}{cccc}\toprule
+      symbol & |&\& &-\\
+      meaning & Or & And& Not\\
+      Ex& 1|0& 1\& 0 &$\sim 0$ \\
+      Result& 1& 0& 1\\
+      Equal exp.& or(1,0)&and(1,0)&not(0)\\
+      Another exp.& 1||0& 1\&\& 0& $\sim 0$\\\bottomrule
+    \end{tabular}
+  \end{table}
+\end{frame}
+\section{Some commands}
+\begin{frame}{Some commands}
+  \begin{table}
+    \centering
+    \tiny
+    \begin{tabularx}{\linewidth}{lXXXXX}\toprule
+      cmd: & clc & clear a & clear all & 1:3&1:2:3\\\midrule
+      Result& clear screen & clear variable a& remove all variables & row vector [1,2,3]& row vector [1,3]\\\midrule
+      cmd:& who a & whos &clf&help cmd& doc cmd\\\midrule
+      Results: &see detail of variable a& see the details of all variables& clear the graph window& see help information
+      of cmd& see document details of cmd\\\bottomrule
+    \end{tabularx}
+  \end{table}
+\end{frame}
+\section{Math functoin}
+\begin{frame}{math function}
+\begin{table}
+  \centering
+  \tiny
+  \begin{tabularx}{\linewidth}{ccccccccc}\toprule
+    $abs(x)$&$sqrt(x)$& sign(x)& sin(x) & cos(x)& tan(x) & cot(x)& sec(x) & csc(x)\\
+   
+    |x|& $\sqrt{x}$ &signum function& sin(x) & cos(x) & tan(x)& cotangent of x& secant of x& The cosecant of x\\\bottomrule
+  \end{tabularx}
+  \caption{basic function}
+\end{table}
+
+\begin{table}
+  \begin{tabularx}{\linewidth}{cccccc}\toprule
+    $asin(x)$&$acos(x)$& atan(x) & acot(x)& asec(x) & acsc(x)\\
+   
+     sin$^{-1}$(x) & cos$^{-1}$(x) & tan$^{-1}$(x)& cot$^{-1}$(x)& sec$^{-1}$(x)&csc$^{-1}(x)$\\\bottomrule
+   \end{tabularx}
+   \caption{Inverse Trigonometric Functions}
+   \end{table}
+   \begin{table}
+     \centering
+   \begin{tabularx}{\linewidth}{ccccc}\toprule
+   syntax& $exp(x)$&$log(x)$& log2(x) & log10(x)\\
+   
+     value&e$^{x}$ & log$_{e}(x)$ & log$_{2}$(x)& log$_{10}$(x)\\\bottomrule
+   \end{tabularx}
+   \caption{   Exponential and Logarithm Functions}
+   \end{table}
+ \end{frame}
+ \begin{frame}{Command window display output format}
+   \begin{itemize}
+     \item format short ( default): display 4 digits
+           
+     \item format long: display 15 digits
+     \item format short e ( format shorte): scientific notation with 4 digits 
+      \item            format long e: Short scientific notation with 15 digits
+     \item format long g: scientific notation with a total of 15 digits for double values, and 7 digits for single values.
+     \item format rat: Ratio of small integers.
+     \item format compact:Suppress excess blank lines to show more output on a single screen.
+     \item format loose:Add blank lines to make output more readable.
+   \end{itemize}
+ \end{frame}
+ \section{matrix operation}
+ \begin{frame}
+   \frametitle{matrix operation}
+   \begin{itemize}
+     \item Input matrix: A=[1,2,3;4,5,6]; or A(1,1)=1,$\ldots$A(2,3)=5;
+     \item Get the size: [n1,n2] = size(A);
+          {\small \color{blue} n1:row length, n2:  column length.}\\
+           length(A)  gets the row length of A.
+     \item Increase the matrix: 
+           or A(1,4)=1;A(2,4) = 2;
+     \item Matrix concatenation: row concatenation,A= [B,C] if column length equals. For example, B = [1;2];C=[3;4];\\
+           column concatenation, A= [B;C] if row length equals. For ex. B = [1,2];C = [3,4];
+   \end{itemize}
+ \end{frame}
+ \begin{frame}{matrix indexing}
+   A is a matrix of size m$\times n$
+   \begin{itemize}
+     \item A(i,j) : (i,j)-th entry of A
+     \item A(i,:) : i-th row of A
+     \item A(:,j): j-th column of A
+     \item A(end,:): last row of A
+           \item A(:,end-1); second last column of A
+     \item A(a:b,c:d): submatrix of A from a to b row and c to d column.
+           
+     \item A(e,f)(e,f are two vectors): sub matrix of A row indexing in e, column indexing in f.\\
+           For Ex.
+           A = eye(5);e = [1,3,5];f=[3,4];A(e,f)
+   \end{itemize}
+   Note that index should not exceed the size of the matrix. A vector can be regarded as a matrix.
+ \end{frame}
+ \begin{frame}
+   \frametitle{Matirx computation}
+   \small
+   
+   \begin{tabularx}{0.48\linewidth}{cX}\toprule
+     \multicolumn{2}{c}{matrix  operation}\\\midrule
+     A+B &matrix addition\\\midrule
+A-B &matrix subtraction\\\midrule
+t * A& scalar-matrix,$t\in R,C$\\\midrule
+A * B& matrix multiplication\\\midrule
+A\^{}n & A*A*A..*A, n times\\\midrule
+A$\backslash$ B & inv(A)*B\\\midrule
+A/B& B*inv(A)\\\bottomrule
+\end{tabularx}
+\begin{tabularx}{0.48\linewidth}{cX}\toprule
+       \multicolumn{2}{c}{matrix  entrywise operation}\\\midrule
+     A.+B &wrong expression\\\midrule
+A.-B &wrong expression\\\midrule
+t. * A&=t*A\\\midrule
+A. * B& A(i,j)*B(i,j)\\\midrule
+A.\^{}n & A(i,j).\^{} n\\\midrule
+A.$\backslash$ B &$\frac{B(i,j)}{A(i,j)}$\\\midrule
+A./B& $\frac{A(i,j)}{B(i,j)}$\\\bottomrule
+   \end{tabularx}
+ \end{frame}
+ \begin{frame}{related operation of matrix}
+   \begin{itemize}
+     \item A’: conjugate transpose of A
+           \item A.': transpose of A
+     \item det(A): determinant of a square matrix A
+     \item rank(A): rank of a square matrix A
+     \item eig(A): eigenvalues of a square matrix A
+     \item inv(A):inverse of a square nonsingular matrix A
+   \end{itemize}
+ \end{frame}
+ \section{Logical flow of programming}
+ 
+ \begin{frame}[containsverbatim]{Conditional statements}
+      If statement
+\begin{columns}
+\begin{column}{0.45\linewidth}
+\begin{lstlisting}
+a=1;b=2;
+if a>b
+           y=a;
+else
+           y=b;
+end
+\end{lstlisting}
+ Find the largest number of \{a,b\}.
+\end{column}
+ \begin{column}{0.45\linewidth}
+  \begin{lstlisting}
+a=1;b=2;c=3;%
+if a>b
+   if a>c
+     y=a;
+   else
+     y=c;
+   end
+elseif b>c
+   y=b;
+else
+   y=c;
+end
+\end{lstlisting}
+    Find the largest number of \{a,b,c\}.
+         \end{column}
+           \end{columns}
+      switch statement
+ \end{frame}
+
+ 
+ \begin{frame}[containsverbatim]{Loops}
+   \begin{itemize}
+     \item While loop:
+\begin{lstlisting}
+k=0;
+y=0;
+while k<10
+k=k+1;
+y=y+k;
+end
+\end{lstlisting}
+           $y=\sum_{i=1}^{10}i$
+     \item for loop
+\begin{lstlisting}
+y=0;
+for  k=1:10
+y=y+k;
+end
+\end{lstlisting}
+           $y=\sum_{i=1}^{10}i$
+   \end{itemize}
+ \end{frame}
+
+ \begin{frame}[containsverbatim]{Termination of loops}
+   \begin{itemize}
+     \item {\tt\color{red} break} exits from the innermost loop
+           \begin{columns}
+             \begin{column}{0.45\linewidth}
+\begin{lstlisting}
+k=0;
+y=0;
+while 1
+  k=k+1;
+  y=y+k;
+  if k==10
+     break
+  end
+end
+\end{lstlisting}
+           $y=\sum_{i=1}^{10}i$               
+             \end{column}
+             \begin{column}{0.45\linewidth}
+\begin{lstlisting}
+A= [1,2,3;4,5,6];[n1,n2]=size(A);
+y=0;
+for i=1:100
+  for j=1:100
+    y = y+ A(i,j);
+    if j==n2
+      break
+    end
+  end
+  if i==n1
+    break
+  end
+end
+\end{lstlisting}
+           $y=\sum_{i,j}^{n1,n2}A_{ij}$               
+         \end{column}
+       \end{columns}
+   \end{itemize}
+ \end{frame}
+ 
+
+ \begin{frame}[containsverbatim]{Termination of loops}
+   \begin{itemize}
+     \item  {\tt\color{red} break} exits from the innermost loop
+     \item  {\tt\color{red} return}  exists  the scripts or function
+   \end{itemize}
+   \begin{columns}
+     \begin{column}{0.5\linewidth}    
+\begin{lstlisting}
+y=0;
+for  k=1:10
+  if mod(k,2)==0 % if k is even 
+    continue
+    %% if condition holds, then pass to
+    % next loop without executing the
+    % following statements in the loop 
+  end
+    y=y+k;
+end
+\end{lstlisting}
+     The sum of odd numbers from 1 to 10.
+   \end{column}
+   \begin{column}{0.5\linewidth}
+\begin{lstlisting}
+A = randi(2,10,20)-1;
+% create a matrix with 0 or 1
+for i=1:10
+  for j=1:20
+     if A(i,j)==0;
+      y=1; disp(A(i,j)); % display this variable
+       return
+     end
+  end
+end
+\end{lstlisting}
+     Check if A has a zero entry.
+   \end{column}
+   \end{columns}
+ \end{frame}
+ 
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
